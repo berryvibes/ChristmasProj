@@ -1,0 +1,87 @@
+{% extends "christmasApp/base.html" %}
+{% load static %}
+
+{% block content %}
+
+
+<!-- <div style="margin-top: 200px;">
+        <h1>Seller Dashboard</h1>
+
+      
+        <section>
+            <h2>Overview</h2>
+            <p><strong>Total Earnings:</strong> ${{ total_earnings }}</p>
+            <p><strong>Orders in Progress:</strong> {{ orders_in_progress }}</p>
+            <p><strong>Top Product:</strong> {{ top_product.name }} - {{ top_product.sales }} sales</p>
+        </section>
+
+      
+        <section>
+            <h2>Quick Actions</h2>
+            <a href="{% url 'add_product' %}" class="btn">Add New Product</a>
+            <a href="#" class="btn">Manage Inventory</a>
+            <a href="#" class="btn">Manage Orders</a>
+        </section>
+    </div> -->
+
+<div class="page-banner-section section mb-5" style="background-image: url('/static/christmasApp/img/bg/page-banner.jpg')">
+    <div class="container">
+        <div class="row">
+            <!-- Page Title Start -->
+            <div class="page-title text-center col">
+                <!-- <h1>shop page</h1> -->
+                <h1 class="text-center ">Seller Dashboard</h1>
+
+
+            </div>
+            <!-- Page Title End -->
+        </div>
+    </div>
+</div>
+
+<div class="container mt-5 mb-5">
+
+    <!-- Overview Section -->
+    <section class="row mt-5">
+        <div class="col-md-4">
+            <div class="card shadow-sm p-4 mb-4">
+                <h4><i class="bi bi-cash-stack"></i> Total Earnings</h4>
+                <p class="display-6">${{ total_earnings }}</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card shadow-sm p-4 mb-4">
+                <h4><i class="bi bi-basket"></i> Orders in Progress</h4>
+                <p class="display-6">{{ orders_in_progress }}</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card shadow-sm p-4 mb-4">
+                <h4><i class="bi bi-trophy"></i> Top Product</h4>
+                <p>{{ product.name }} - {{ product.price }} sales</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Actions -->
+    <section class="mt-5">
+        <h2 class="mb-3">Quick Actions</h2>
+        <div class="d-grid gap-3">
+            <a href="{% url 'add_product' %}" class="btn btn-primary"><i class="bi bi-plus-circle"></i> Add New
+                Product</a>
+
+
+
+            <a href="#" class="btn btn-secondary"><i class="bi bi-box-seam"></i> Manage Inventory</a>
+            <a href="#" class="btn btn-secondary"><i class="bi bi-receipt-cutoff"></i> Manage Orders</a>
+        </div>
+    </section>
+</div>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+{% endblock %}

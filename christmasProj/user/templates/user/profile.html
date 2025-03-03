@@ -1,0 +1,57 @@
+{% extends "christmasApp/base.html" %} {% load static %} {% block content%}
+
+<section class="py-5" style="background-color: #f0f4f8">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8 col-lg-6">
+        <!-- Profile Card -->
+        <div
+          class="card shadow-lg border-0"
+          style="border-radius: 12px; overflow: hidden"
+        >
+          <!-- Card Header -->
+          <div class="card-header bg-secondary text-white text-center py-4">
+            <h2 class="mb-0 text-white">{{ user.username }}'s Profile</h2>
+          </div>
+
+          <!-- Card Body -->
+          <div class="card-body text-center p-4">
+            <!-- Profile Picture -->
+            {% if profile.profile_pic %}
+            <img
+              src="{{ profile.profile_pic.url }}"
+              alt="Profile Picture"
+              class="rounded-circle img-thumbnail mb-3"
+              style="width: 150px; height: 150px; object-fit: cover"
+            />
+            {% else %}
+            <img
+              src="{% static 'christmasApp/img/testimonial/1.jpg' %}"
+              alt="Default Profile Picture"
+              class="rounded-circle img-thumbnail mb-3"
+              style="width: 150px; height: 150px; object-fit: cover"
+            />
+            {% endif %}
+
+            <!-- Profile Info -->
+            <p class="text-muted mb-2">
+              <strong>Bio:</strong> {{ profile.bio }}
+            </p>
+            <p class="text-muted">
+              <strong>Location:</strong> {{ profile.location }}
+            </p>
+
+            <!-- Edit Profile Button -->
+            <a
+              href="{% url 'edit_profile' %}"
+              class="btn btn-primary w-100 mt-3"
+              >Edit Profile</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

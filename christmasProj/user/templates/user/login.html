@@ -1,0 +1,22 @@
+{% extends "christmasApp/base.html" %} 
+{% load static %} 
+{% block content %}
+
+<section class="register">
+
+    <div class="reg">
+        <h2>Login</h2>
+        <div class="form">
+            <form method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Login</button>
+            </form>
+        </div>
+        <p class="para">Don't have an account😁! <a href="{% url 'register' %}">Sign Up</a></p>
+    </div>
+
+</section>
+
+
+{% endblock %}
