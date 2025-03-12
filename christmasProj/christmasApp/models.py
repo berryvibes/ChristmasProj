@@ -9,7 +9,7 @@ class Product(models.Model):
     description = models.TextField()
     id = models.IntegerField(primary_key=True)
     image = models.ImageField(upload_to='images/')
-    # stock = models.IntegerField(null=True)
+    stock = models.IntegerField(null=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
 
 

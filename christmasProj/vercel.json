@@ -1,13 +1,13 @@
 {
     "builds": [{
-        "src": "christmasApp/wsgi.py",
+        "src": "christmasProj/wsgi.py",
         "use": "@vercel/python",
-        "config": { "maxLambdaSize": "15mb", "runtime": "python3.9" }
+        "config": { "maxLambdaSize": "15mb", "runtime": "python3.12" }
     }],
     "routes": [
         {
             "src": "/(.*)",
-            "dest": "christmasApp /wsgi.py"
+            "dest": "christmasProj/wsgi.py"
         }
     ]
-}  
+}

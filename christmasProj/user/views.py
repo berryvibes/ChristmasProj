@@ -17,7 +17,26 @@ from christmasApp.models import Product
 
 
 
+def send_email(request):
+    # Check if the user is authenticated and has a 'seller' user_type in their profile
+    if request.user.is_authenticated and hasattr(request.user, 'profile') and request.user.profile.user_type == 'seller':
+        if request.method == "POST":
+            subject = request.POST.get('subject')
+            message = request.POST.get('message')
+            recipient_email = request.POST.get('recipient_email')
 
+            send_mail(
+                subject,
+                message,
+                settings.EMAIL_HOST_USER,
+                [recipient_email],
+                fail_silently=False,
+            )
+            return HttpResponse("Email sent successfully.")
+        else:
+            return render(request, "user/send_email.html")
+    else:
+        return HttpResponse("Unauthorized", status=403)
 
 
 def register(request):

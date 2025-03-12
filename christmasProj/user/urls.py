@@ -1,5 +1,6 @@
 from django.urls import path
 from . import views
+from .views import send_email
 from django.contrib.auth import views as auth_views
 
 
@@ -12,5 +13,6 @@ urlpatterns = [
     path('edit_profile/', views.edit_profile, name='edit_profile'),
     path('seller-dashboard/', views.seller_dashboard, name='seller_dashboard'),  # URL for seller dashboard
     path('buyer-dashboard/', views.buyer_dashboard, name='buyer_dashboard'),
+    path('send-email/', send_email, name='send_email'),
     
 ]
