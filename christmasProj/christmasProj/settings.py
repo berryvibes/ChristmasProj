@@ -35,7 +35,10 @@ SECRET_KEY = 'django-insecure-6-$_qzb)(qpsx5nae+t&%nfeex_f=#i465-hyx34b)mc0%@n)p
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+# ALLOWED_HOSTS = ['*']
+
+ALLOWED_HOSTS = ['christmasproj.onrender.com', '127.0.0.1']
+
 
 
 # Application definition
@@ -95,11 +98,18 @@ WSGI_APPLICATION = 'christmasProj.wsgi.application'
     
 # }
 
+# DATABASES = {
+#     'default': dj_database_url.parse(env('DATABASE_URL'))
+# }
+
+DATABASE_URL = os.getenv('DATABASE_URL')  # Get DATABASE_URL from environment variables
+
 DATABASES = {
-    'default': dj_database_url.parse(env('DATABASE_URL'))
+    'default': dj_database_url.parse(DATABASE_URL) if DATABASE_URL else {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 }
-
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
