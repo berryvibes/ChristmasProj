@@ -33,7 +33,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-6-$_qzb)(qpsx5nae+t&%nfeex_f=#i465-hyx34b)mc0%@n)p'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 # ALLOWED_HOSTS = ['*']
 
@@ -70,7 +70,7 @@ ROOT_URLCONF = 'christmasProj.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR,'templates')],
+        'DIRS': [os.path.join(BASE_DIR,'christmasApp/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -102,14 +102,19 @@ WSGI_APPLICATION = 'christmasProj.wsgi.application'
 #     'default': dj_database_url.parse(env('DATABASE_URL'))
 # }
 
-DATABASE_URL = os.getenv('DATABASE_URL')  # Get DATABASE_URL from environment variables
+# DATABASE_URL = os.getenv('DATABASE_URL')  # Get DATABASE_URL from environment variables
+
+# DATABASES = {
+#     'default': dj_database_url.parse(DATABASE_URL) if DATABASE_URL else {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 DATABASES = {
-    'default': dj_database_url.parse(DATABASE_URL) if DATABASE_URL else {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.config(default=os.getenv("DATABASE_URL"))
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
