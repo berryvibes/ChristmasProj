@@ -1,7 +1,23 @@
-{% extends "christmasApp/base.html" %} 
-{% load static %} 
+{% extends "christmasApp/base.html" %}
+{% load static %}
 {% block content %}
 
+
+
+
+    <!-- Page Banner Section Start-->
+    <div class="page-banner-section section" style="background-image: url('/static/christmasApp/img/bg/page-banner.jpg')">
+      <div class="container">
+          <div class="row">
+              
+              <!-- Page Title Start -->
+              <div class="page-title text-center col">
+                  <h1>Register</h1>
+              </div><!-- Page Title End -->
+              
+          </div>
+      </div>
+  </div><!-- Page Banner Section End-->
 
 <!-- <section class="register py-5">
     <div class="container">
@@ -28,18 +44,24 @@
   </section> -->
 
 
+
+<section class="register">
+
   <div class="reg">
-    <h2>Register</h2>
-    <div class="form">
-        <form method="POST">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit">Sign Up</button>
-        </form>
-    </div>
-    <p class="para">Already have an account😁! <a href="{% url 'login' %}">login</a></p>
-</div>
-  
+      <h2>Register</h2>
+      <div class="form">
+          <form method="POST">
+              {% csrf_token %}
+              {{ form.as_p }}
+              <button type="submit">Sign Up</button>
+          </form>
+      </div>
+      <p class="para">Already have an account😁! <a href="{% url 'login' %}">login</a></p>
+  </div>
+
+
+</section>
+
 
 
 {% endblock %}

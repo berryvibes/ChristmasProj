@@ -7,7 +7,6 @@ class Product(models.Model):
     name = models.CharField(max_length=100)
     price = models.DecimalField(max_digits=10, decimal_places=2)
     description = models.TextField()
-    id = models.IntegerField(primary_key=True)
     image = models.ImageField(upload_to='images/')
     stock = models.IntegerField(null=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
@@ -22,3 +21,7 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+    
+
+    # id = models.IntegerField(primary_key=True)
+    
